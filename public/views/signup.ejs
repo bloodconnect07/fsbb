@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up</title>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="w-full h-screen flex justify-center items-center font-[roboto]"
+    >
+        <!-- Signup -->
+        <main
+            class="w-[90%] h-screen flex flex-col justify-center items-center gap-10"
+        >
+            <h1 class="text-5xl font-bold" id="headerText">Sign Up</h1>
+            <form
+                action="/signup"
+                method="POST"
+                class="flex flex-col justify-center border-2 border-black gap-7 p-5 w-[30%]"
+            >
+                <div class="flex flex-col justify-center gap-3">
+                    <label
+                        id="fullnameLabel"
+                        class="text-xl font-semibold"
+                        for="fullname"
+                        >Full Name<span>*</span></label
+                    >
+                    <input
+                        class="p-2 border border-black"
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter name"
+                        required
+                    />
+                </div>
+                <div class="flex flex-col justify-center gap-3">
+                    <label class="text-xl font-semibold" for="email"
+                        >Email<span>*</span></label
+                    >
+                    <input
+                        class="p-2 border border-black"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    />
+                </div>
+                <div class="flex flex-col justify-center gap-3">
+                    <label class="text-xl font-semibold" for="password"
+                        >Password<span>*</span></label
+                    >
+                    <input
+                        class="p-2 border border-black"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    />
+                </div>
+                <div class="flex flex-col justify-center gap-3">
+                    <button
+                        class="p-2 text-lg font-bold text-white bg-black hover:text-black hover:bg-white hover:border-2 hover:border-black"
+                        type="submit"
+                        id="submitBtn"
+                    >
+                        Sign Up
+                    </button>
+                    <button
+                        class="flex items-center justify-center gap-2 p-2 text-lg font-bold border-2 border-black hover:text-white hover:bg-black"
+                    >
+                        <a href="#"
+                            ><i class="fa-brands fa-google"></i>Sign Up with
+                            Google</a
+                        >
+                    </button>
+                </div>
+            </form>
+            <div class="flex flex-col items-center justify-center">
+                <p>
+                    <span id="toggle">Are you a Hospital Admin?</span>
+                    <button onclick="toggleHospital()" class="underline">
+                        Click here
+                    </button>
+                </p>
+                <p>
+                    Already have an account?
+                    <a class="underline" href="/login">Log In</a>
+                </p>
+            </div>
+        </main>
+        <!-- Internal JS -->
+        <script>
+            let hospitalLogin = false;
+
+            function toggleHospital() {
+                let toggle = document.getElementById("toggle");
+                let fullnameLabel = document.getElementById("fullnameLabel");
+
+                if (toggle.textContent === "Are you a Hospital Admin?") {
+                    toggle.textContent = "Are you a User?";
+                    hospitalLogin = true;
+                    fullnameLabel.innerHTML = "Hospital Name<span>*</span>";
+                } else {
+                    toggle.textContent = "Are you a Hospital Admin?";
+                    hospitalLogin = false;
+                    fullnameLabel.innerHTML = "Full Name<span>*</span>";
+                }
+            }
+        </script>
+        <!-- Font Awesome -->
+        <script
+            src="https://kit.fontawesome.com/c46ec1b7c4.js"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

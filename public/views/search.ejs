@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search For Blood</title>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <!-- Navbar -->
+        <%- include('./partials/navbar.ejs'); -%>
+        <!-- Search -->
+        <section
+            class="w-full flex flex-col items-center justify-center py-5 font-[roboto]"
+        >
+            <main class="w-[90%] flex justify-between">
+                <!-- Search Filter -->
+                <form
+                    action="/search"
+                    method="POST"
+                    class="flex flex-col justify-center border-2 border-black p-10 gap-2 rounded-md h-[55vh]"
+                >
+                    <label class="text-3xl font-bold" for="pin-code"
+                        >Pin Code</label
+                    >
+                    <input
+                        class="text-xl border-2 border-black rounded-md px-4 placeholder:text-lg w-[200px]"
+                        type="text"
+                        name="pin-code"
+                        id="pin-code"
+                        placeholder="Enter Your Area Pin"
+                        required
+                    />
+                    <label class="pt-3 text-3xl font-bold" for="blood-type"
+                        >Blood Type</label
+                    >
+                    <select
+                        class="text-xl w-[200px] border-2 border-black rounded-md px-2"
+                        name="blood-type"
+                        id="blood-type"
+                        required
+                    >
+                        <option selected value="selecct">
+                            Select Blood Type
+                        </option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                    <label class="pt-3 text-3xl font-bold" for="search-type"
+                        >Search Type</label
+                    >
+                    <select
+                        class="text-xl w-[200px] border-2 border-black rounded-md px-2"
+                        name="search-type"
+                        id="search-type"
+                    >
+                        <option selected value="both">Both</option>
+                        <option value="donor">Donor</option>
+                        <option value="hospital">Hospital</option>
+                    </select>
+                    <button
+                        class="w-[200px] border-2 border-black rounded-md mt-5 p-1 text-xl bg-red-500 hover:bg-red-700 text-white hover:text-white font-bold shadow-gray-500 shadow-sm"
+                        type="submit"
+                    >
+                        Search
+                    </button>
+                </form>
+                <!-- Search Results -->
+                <div
+                    class="flex flex-col border-2 border-black w-[75%] rounded-md p-10 gap-5"
+                >
+                    <h1 class="text-3xl font-bold">Search Results</h1>
+                    <% if (searchResults.length === 0) { %>
+                    <p>No search results found.</p>
+                    <% } else { %>
+                    <div class="flex flex-wrap items-center gap-5">
+                        <% searchResults.forEach(result => { %>
+                        <div
+                            class="flex flex-col gap-3 p-5 border-2 border-black justify-center w-[300px] rounded-md"
+                        >
+                            <h1 class="text-xl font-bold">
+                                <%= result.type === 'hospital' ? 'Hospital Name'
+                                : 'Donor Name' %>
+                            </h1>
+                            <p class="text-base font-semibold">
+                                <%= result.name %>
+                            </p>
+                            <p class="text-base font-semibold">
+                                Address: <%= result.address %>
+                            </p>
+                            <p class="text-base font-semibold">
+                                Phone: <%= result.phone %>
+                            </p>
+                        </div>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                </div>
+            </main>
+        </section>
+        <!-- Footer -->
+        <%- include('./partials/footer.ejs'); -%>
+    </body>
+</html>

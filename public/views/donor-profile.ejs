@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Donor Profile</title>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="../css/style.css" />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body class="flex flex-col items-center justify-center font-[roboto]">
+        <!-- Navbar -->
+        <%- include('./partials/navbar.ejs'); -%>
+        <!-- Edit Option -->
+        <% if (owner) { %>
+        <div
+            class="relative w-[90%] p-4 bg-pink-500 border border-gray-300 rounded-lg font-[roboto]"
+        >
+            <p class="text-white">You are viewing this page as an owner.</p>
+            <a href="/donor/complete-your-profile/<%= donor._id %>">
+                <button
+                    class="absolute px-4 py-2 font-bold text-white transition duration-300 bg-blue-500 rounded-md shadow-md edit-button top-2 right-4 hover:bg-blue-600"
+                >
+                    Edit Details
+                </button>
+            </a>
+        </div>
+        <% } %>
+        <!-- Donor Profile -->
+        <main class="flex flex-col items-center justify-center w-[90%] gap-10">
+            <div class="flex flex-col items-center justify-center w-full mt-10">
+                <img
+                    class="rounded-full w-[200px] h-[200px] object-cover"
+                    src="<%= donor.avatar %>"
+                    alt="profile picture"
+                />
+            </div>
+            <div class="flex justify-between w-full">
+                <div
+                    class="flex flex-col gap-4 p-5 border-2 border-black w-[32%] rounded-lg"
+                >
+                    <h1 class="text-3xl font-bold">Personal Details</h1>
+                    <div>
+                        <h1 class="text-xl font-semibold">
+                            Name: <%= donor.name %>
+                        </h1>
+                        <p class="text-lg font-semibold">
+                            Age: <%= donor.age %>
+                        </p>
+                        <p class="text-lg font-semibold">
+                            Gender: <%= donor.gender %>
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col gap-4 p-5 border-2 border-black w-[32%] rounded-lg"
+                >
+                    <h1 class="text-3xl font-bold">Blood Type</h1>
+                    <h1 class="text-xl font-semibold">
+                        <%= donor.bloodType %>
+                    </h1>
+                </div>
+                <div
+                    class="flex flex-col gap-4 p-5 border-2 border-black w-[32%] rounded-lg"
+                >
+                    <h1 class="text-3xl font-bold">Contact Information</h1>
+                    <div>
+                        <p class="text-lg font-semibold">
+                            Phone Number: <%= donor.phone %>
+                        </p>
+                        <p class="text-lg font-semibold">
+                            Email: <%= donor.email %>
+                        </p>
+                        <p class="text-lg font-semibold">
+                            Address: <%= donor.address %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col w-full gap-5">
+                <h1 class="text-3xl font-bold">Donation History</h1>
+                <% if (donationHistory.length > 0) { %>
+                <div class="flex flex-col items-center justify-center w-full">
+                    <table class="border w-[80%]">
+                        <thead>
+                            <tr class="border border-black">
+                                <th
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    Date
+                                </th>
+                                <th
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    Location
+                                </th>
+                                <th
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    Quantity
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% donationHistory.forEach(function(history) { %>
+                            <tr class="border border-black">
+                                <td
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    <%= history.date %>
+                                </td>
+                                <td
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    <%= history.location %>
+                                </td>
+                                <td
+                                    class="px-4 py-2 text-center border border-black"
+                                >
+                                    <%= history.quantity %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+                <% } else { %>
+                <p class="text-xl font-semibold">
+                    No donation history available.
+                </p>
+                <% } %>
+            </div>
+            <div class="flex flex-col w-full gap-5 mb-10">
+                <h1 class="text-3xl font-bold">Delete Account</h1>
+                <div>
+                    <p class="mb-1 text-xl">
+                        Are you sure you want to delete your account?
+                    </p>
+                    <a href="/donor/delete/<%= donor._id %>">
+                        <button
+                            type="submit"
+                            class="px-4 py-2 font-bold text-black bg-red-500 rounded shadow-sm hover:bg-red-700 hover:text-white shadow-gray-500"
+                        >
+                            Delete Account
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <%- include('./partials/footer.ejs'); -%>
+    </body>
+</html>

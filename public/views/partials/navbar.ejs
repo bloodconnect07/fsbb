@@ -1,0 +1,86 @@
+<!-- Navbar -->
+<nav
+  class="flex bg-white flex-row justify-between items-center h-20 px-7 py-5 font-[roboto] w-full"
+>
+  <div class="">
+    <img
+      class="rounded-full"
+      src="../../assests/logo.png"
+      alt="logo"
+      height="200"
+      width="200"
+    />
+  </div>
+  <div class="flex flex-row items-center">
+    <ul class="flex-row hidden md:inline-flex">
+      <li>
+        <a class="px-5 text-gray-600 hover:text-red-600" href="#">Search</a>
+      </li>
+      <li>
+        <a class="px-5 text-gray-600 hover:text-red-600" href="#">Host</a>
+      </li>
+      <li>
+        <button
+          class="flex justify-center px-5 text-gray-600 hover:text-red-600"
+          href="#"
+          id="bankLogin"
+          onclick="toggleDropdownVisibility()"
+        >
+          Bank login
+          <span class="material-symbols-outlined"> expand_more </span>
+        </button>
+
+        <!-- Drop down content -->
+        <div
+          id="dropdownContent"
+          class="absolute z-10 hidden w-40 bg-white rounded-lg shadow"
+        >
+          <ul
+            class="py-2 text-sm"
+            aria-labelledby="dropdownMenuIconButton"
+          >
+            <li class="hover:bg-slate-100"">
+              <a
+                href="/login"
+                class="block px-4 py-2"
+                >Hospital login</a
+              >
+            </li>
+            <li class="hover:bg-slate-100">
+              <a
+                href="/login"
+                class="block px-4 py-2"
+                >Donor login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a class="px-5 text-gray-600 hover:text-red-600" href="#">About Us</a>
+      </li>
+      <li>
+        <a class="px-5 text-gray-600 hover:text-red-600" href="#">Contact Us</a>
+      </li>
+    </ul>
+    <div>
+      <button
+        class="rounded-full border border-red py-1.5 px-5 transition-all duration-500 ease-in-out transform bg-[#d20003] hover:text-red-600 hover:border-[#d20003] hover:bg-white text-white text-center text-sm"
+      >
+        <a href="#">Login</a>
+      </button>
+      <button
+        class="rounded-full border transition-all duration-500 ease-in-out transform border-[#d20003] bg-transparent py-1.5 px-5 text-red-600 hover:bg-[#d20003] hover:text-white text-center text-sm"
+      >
+        <a href="#">Sign Up</a>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleDropdownVisibility() {
+    var dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.classList.toggle("hidden");
+  }
+</script>
