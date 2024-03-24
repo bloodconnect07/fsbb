@@ -26,13 +26,13 @@
         <!--  Complete Your Profile section -->
         <main>
             <div
-                class="flex flex-col md:flex-row mx-16 my-5 gap-10 justify-center"
+                class="flex flex-col justify-center gap-10 mx-16 my-5 md:flex-row"
             >
                 <!-- Upload Picture -->
                 <div
                     class="border border-black flex flex-col p-6 max-h-[400px]"
                 >
-                    <span class="font-bold text-xl">Profile Picture</span>
+                    <span class="text-xl font-bold">Profile Picture</span>
                     <span class="my-3">Upload Picture</span>
                     <input type="file" class="border border-black w-[80%]" />
                     <div
@@ -45,13 +45,13 @@
                     <div
                         class="border border-black flex flex-col p-6 md:w-[55vw]"
                     >
-                        <span class="font-bold text-xl"
+                        <span class="text-xl font-bold"
                             >Personal Information</span
                         >
                         <label for="name" class="mt-2 mb-1">Name</label>
                         <input
                             type="text"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                             id="name"
                             placeholder="Your name"
                             required
@@ -59,14 +59,14 @@
                         <label for="dob" class="my-1">Date Of Birth</label>
                         <input
                             type="date"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                             id="date"
                         />
                         <label for="genders" class="my-1">Gender</label>
                         <select
                             name="genders"
                             id="genders"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                         >
                             <option value="male">male</option>
                             <option value="female">female</option>
@@ -76,7 +76,7 @@
                         <select
                             name="b-group"
                             id="b-group"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                         >
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
@@ -90,19 +90,19 @@
                         <label for="number" class="my-1">Phone Number</label>
                         <input
                             type="text"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                             id="number"
                             placeholder="Enter your phone number"
                             required
                         />
                         <label for="address" class="my-1">Address</label>
                         <textarea
-                            class="resize-none border border-black p-1"
+                            class="p-1 border border-black resize-none"
                             name="address"
                             id="address"
                             cols="10"
                             rows="3"
-                            class="border border-black p-1"
+                            class="p-1 border border-black"
                             placeholder="Enter your address"
                         ></textarea>
                     </div>

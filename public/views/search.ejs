@@ -1,9 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Search For Blood</title>
+        <!-- Material Icons -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
         <!-- External CSS -->
         <link rel="stylesheet" href="../css/style.css" />
         <!-- Google Fonts -->
@@ -14,14 +19,14 @@
             rel="stylesheet"
         />
     </head>
-    <body>
+    <body class="bg-[#fae5e5]">
         <!-- Navbar -->
         <%- include('./partials/navbar.ejs'); -%>
         <!-- Search -->
         <section
-            class="w-full flex flex-col items-center justify-center py-5 font-[roboto]"
+            class="w-full flex flex-col items-center justify-center font-[roboto] py-10"
         >
-            <main class="w-[90%] flex justify-between">
+            <main class="w-[90%] flex flex-wrap gap-10">
                 <!-- Search Filter -->
                 <form
                     action="/search"

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -15,70 +15,96 @@
         />
     </head>
     <body
-        class="w-full h-screen flex flex-col justify-center items-center font-[roboto]"
+        class="w-full h-screen flex flex-col justify-center items-center font-[roboto] bg-gray-900"
     >
-        <!-- Login -->
-        <main
-            class="w-[90%] h-screen flex flex-col justify-center items-center gap-10"
-        >
-            <h1 class="text-5xl font-bold">Log In</h1>
-            <form
-                action="/login"
-                method="POST"
-                class="flex flex-col justify-center border-2 border-black gap-7 p-5 w-[30%]"
+        <div class="w-full max-w-lg">
+            <div
+                style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);"
+                class="overflow-hidden bg-gray-800 rounded-lg shadow-xl"
             >
-                <div class="flex flex-col justify-center gap-3">
-                    <label class="text-xl font-semibold" for="email"
-                        >Email<span>*</span></label
-                    >
-                    <input
-                        class="p-2 border border-black"
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                    />
+                <div class="p-8">
+                    <h2 class="text-3xl font-extrabold text-center text-white">
+                        Welcome Back
+                    </h2>
+                    <p class="mt-4 text-center text-gray-400">
+                        Glad to see you again login to your account below.
+                    </p>
+                    <form method="POST" action="/login" class="mt-8 space-y-6">
+                        <div class="rounded-md shadow-sm">
+                            <div class="mt-4">
+                                <label for="email" class="text-gray-300"
+                                    >Email address</label
+                                >
+                                <input
+                                    placeholder="Enter your email"
+                                    class="relative block w-full px-3 py-3 my-3 text-white bg-gray-700 border border-gray-700 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    required
+                                    autocomplete="email"
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                />
+                            </div>
+                            <div class="mt-4">
+                                <label for="password" class="text-gray-300"
+                                    >Password</label
+                                >
+                                <input
+                                    placeholder="Enter your password"
+                                    class="relative block w-full px-3 py-3 my-3 text-white bg-gray-700 border border-gray-700 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    required
+                                    autocomplete="current-password"
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between mt-4">
+                            <div class="flex items-center">
+                                <input
+                                    class="w-4 h-4 text-indigo-500 border-gray-600 rounded focus:ring-indigo-400"
+                                    type="checkbox"
+                                    name="remember-me"
+                                    id="remember-me"
+                                />
+                                <label
+                                    class="block ml-2 text-sm text-gray-400"
+                                    for="remember-me"
+                                    >Remember me</label
+                                >
+                            </div>
+
+                            <div class="text-sm">
+                                <a
+                                    class="font-medium text-indigo-500 hover:text-indigo-400"
+                                    href="/forgot-password"
+                                >
+                                    Forgot your password?
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button
+                                class="relative flex justify-center w-full px-4 py-3 text-sm font-medium text-gray-900 bg-indigo-500 border border-transparent rounded-md group hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                type="submit"
+                            >
+                                Sign In
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="flex flex-col justify-center gap-3">
-                    <label class="text-xl font-semibold" for="password"
-                        >Password<span>*</span></label
+                <div class="px-8 py-4 text-center bg-gray-700">
+                    <span class="text-gray-400">Don't have an account?</span>
+                    <a
+                        class="font-medium text-indigo-500 hover:text-indigo-400"
+                        href="/signup"
+                        >Sign up</a
                     >
-                    <input
-                        class="p-2 border border-black"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                        required
-                    />
                 </div>
-                <div class="flex flex-col justify-center gap-3">
-                    <button
-                        class="p-2 text-lg font-bold text-white bg-black border-2 border-black hover:text-black hover:bg-white"
-                        type="submit"
-                    >
-                        Log In
-                    </button>
-                    <button
-                        class="flex items-center justify-center gap-2 p-2 text-lg font-bold border-2 border-black hover:text-white hover:bg-black"
-                    >
-                        <a href="#"
-                            ><i class="fa-brands fa-google"></i>Sign Up with
-                            Google</a
-                        >
-                    </button>
-                </div>
-            </form>
-            <p>
-                Don&apos;t have an account?
-                <a class="underline" href="/signup">Sign Up</a>
-            </p>
-        </main>
-        <!-- Font Awesome -->
-        <script
-            src="https://kit.fontawesome.com/c46ec1b7c4.js"
-            crossorigin="anonymous"
-        ></script>
+            </div>
+        </div>
     </body>
 </html>
